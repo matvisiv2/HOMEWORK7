@@ -183,8 +183,6 @@ function changeCities() {
     });
 };
 
-changeCities();
-
 // Опрацювання зміни міста
 const task07City = document.getElementById("task07City");
 
@@ -193,3 +191,6 @@ function changeCity() {
 }
 
 select_cities.addEventListener("change", changeCity);
+
+// ініціалізувати вивід країни і міста
+changeCountry();
