@@ -122,7 +122,13 @@ window.addEventListener("resize", () => {
 });
 
 
-// 7*. На сторінці потрібно реалізувати 2 випадаючих списки. У першому містяться назви країн, у другому – назви міст. Реалізувати роботу таким чином, щоб коли вибирається з лівого випадаючого списку певна країна - в правому випадаючому  списку з'являлися міста цієї країни. Список міст формується динамічно, через JavaScript. Також потрібно нижче вивести назву обраної країни і місто.
+// 7*. На сторінці потрібно реалізувати 2 випадаючих списки.
+// У першому містяться назви країн, у другому – назви міст.
+// Реалізувати роботу таким чином,
+//      щоб коли вибирається з лівого випадаючого списку певна країна
+//      - в правому випадаючому  списку з'являлися міста цієї країни.
+// Список міст формується динамічно, через JavaScript.
+// Також потрібно нижче вивести назву обраної країни і місто.
 
 // Код HTML-сторінки:
 // <select name="country" id="country">
@@ -133,3 +139,57 @@ window.addEventListener("resize", () => {
 
 // <select name="cities" id="cities"></select>
 // <p></p>
+
+
+// Вхідні дані (країни та міста)
+const arr_countries = ['Ukraine', 'Germany', 'France', 'Japan'];
+const arr_cities = [
+    ['Kyiv', 'Lviv', 'Odesa', 'Kharkiv', 'Dnipro', 'Vinnytsia', 'Poltava', 'Chernihiv', 'Zaporizhzhia', 'Cherkasy'],
+    ['Berlin', 'Munich', 'Hamburg', 'Cologne', 'Frankfurt', 'Stuttgart', 'Dresden', 'Bremen', 'Hanover', 'Nuremberg'],
+    ['Paris', 'Marseille', 'Lyon', 'Toulouse', 'Nice', 'Nantes', 'Strasbourg', 'Montpellier', 'Bordeaux', 'Lille'],
+    ['Tokyo', 'Osaka', 'Kyoto', 'Nagoya', 'Sapporo', 'Hiroshima', 'Fukuoka', 'Yokohama', 'Sendai', 'Kobe']
+];
+
+// Створення вибору країн
+const select_country = document.getElementById("country");
+arr_countries.forEach(name => {
+    const option = document.createElement("option");
+    option.value = name;
+    option.textContent = name;
+    select_country.appendChild(option);
+});
+
+// Опрацювання зміни країни
+const task07Country = document.getElementById("task07Country");
+
+function changeCountry() {
+    task07Country.textContent = `Country: ${select_country.options[select_country.selectedIndex].value}`;
+    changeCities();
+    changeCity();
+}
+
+select_country.addEventListener("change", changeCountry);
+
+
+// Створення вибору міст
+const select_cities = document.getElementById("cities");
+function changeCities() {
+    select_cities.innerHTML = '';
+    arr_cities[select_country.selectedIndex].forEach(name => {
+        const option = document.createElement("option");
+        option.value = name;
+        option.textContent = name;
+        select_cities.appendChild(option);
+    });
+};
+
+changeCities();
+
+// Опрацювання зміни міста
+const task07City = document.getElementById("task07City");
+
+function changeCity() {
+    task07City.textContent = `City: ${select_cities.options[select_cities.selectedIndex].value}`;
+}
+
+select_cities.addEventListener("change", changeCity);
