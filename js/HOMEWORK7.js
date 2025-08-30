@@ -39,12 +39,37 @@ function changeCSS() {
 }
 
 
-// 3. Задано сторінку з 3 кнопками і 1 лінкою. Напишіть Javascript код і реалізуйте HTML-сторінку з відповідними подіями на кожному елементові:
+// 3. Задано сторінку з 3 кнопками і 1 лінкою.
+// Напишіть Javascript код і реалізуйте HTML-сторінку з відповідними подіями на кожному елементові:
 // 	1) 1-ша кнопка – при кліку на неї колір фону сторінки міняється на синій
 // 	2) 2-га кнопка – при подвійному кліку на неї колір фону сторінки міняється на рожевий
 // 	3) 3-я кнопка – при натисненні і утримуванні кнопки колір фону сторінки стає коричневий. При відпусканні – білий.
 // 	4) При наведенні на лінку – колір фону стає жовтим, при відведенні – білим.
 // 	Приклад – курсор наведений на лінку.
+
+function task03() {
+    const elems = [
+        document.createElement("button"),
+        document.createElement("button"),
+        document.createElement("button"),
+        document.createElement("a")
+    ];
+
+    elems[0].textContent = "Click to make the page Blue";
+    elems[0].addEventListener("click", () => document.body.style.backgroundColor = "blue");
+    elems[1].textContent = "Double-click to make the page pink";
+    elems[1].addEventListener("dblclick", () => document.body.style.backgroundColor = "orange");
+    elems[2].textContent = "Click and hold to make the page brown";
+    elems[2].addEventListener("mousedown", () => document.body.style.backgroundColor = "brown");
+    elems[2].addEventListener("mouseup", () => document.body.style.backgroundColor = "white");
+    elems[3].textContent = "Hover over to make the page yellow"
+    elems[3].addEventListener("mouseenter", () => document.body.style.backgroundColor = "yellow");
+    elems[3].addEventListener("mouseleave", () => document.body.style.backgroundColor = "white");
+
+    const div = document.getElementById("task03");
+    elems.forEach(el => div.appendChild(el));
+}
+
 
 // 4. Реалізуйте програму, яка по натисканню на кнопку видалятиме обраний елемент випадаючого списку. Можуть видалятися всі елементи в будь-якому порядку.
 
