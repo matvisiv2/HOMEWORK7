@@ -83,10 +83,34 @@ function task04() {
 }
 
 
-// 5. Реалізуйте програму, яка по натисканню на кнопку виводитиме повідомлення
-// "I was pressed!", при наведенні на кнопку виводитиме повідомлення "Mouse on me!", а при відведенні курсора миші виводитиме повідомлення "Mouse is not on me!".
+// 5. Реалізуйте програму,
+// яка по натисканню на кнопку виводитиме повідомлення "I was pressed!",
+// при наведенні на кнопку виводитиме повідомлення "Mouse on me!",
+// а при відведенні курсора миші виводитиме повідомлення "Mouse is not on me!".
 
-// Приклад роботи:
+function task05Pressed() {
+    const p = document.createElement("p");
+    p.textContent = "I was pressed!";
+    const div = document.getElementById("task05");
+    div.appendChild(p);
+    console.log("I was pressed!");
+}
+
+function task05MouseOn() {
+    const p = document.createElement("p");
+    p.textContent = "Mouse on me!";
+    const div = document.getElementById("task05");
+    div.appendChild(p);
+    console.log("Mouse on me!");
+}
+
+function task05MouseOut() {
+    const p = document.createElement("p");
+    p.textContent = "Mouse is not on me!";
+    const div = document.getElementById("task05");
+    div.appendChild(p);
+    console.log("Mouse is not on me!");
+}
 
 // 6. Реалізуйте програму, яка відслідковуватиме зміну розміру (ширини і висоти) вікна браузера і виводитиме на поточну сторінку при її розтязі/стисканні відповідні значення.
 
